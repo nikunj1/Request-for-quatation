@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<!-- rfq from view -->	
+		<record model="ir.ui.view" id="rfq_form_view">
+			<field name="name">Request for Quatation</field>
+			<field name="model">rfq.order</field>
+			<field name="arch" type="xml">
+				<form string="Request for quatation">
+					<sheet>
+						<group col="4" colspan="4">
+							<field name="order_date"/>
+							<field name="schedule_date"/>
+						</group>
+						<notebook colspan="4">
+							<page string="Pruduct">
+							 <field name="order_line">
+								<tree string="Purchase Order Lines" editable="bottom">
+									<field name="product_id"/>
+									<field name="supplyer_id"/>
+									<field name="quantity"/>
+								</tree>
+							</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="sup_form_view">
+			<field name="name">supplyer</field>
+			<field name="model">supplyer.info</field>
+			<field name="arch" type="xml">
+				<form string="supplyer">
+					<sheet>
+						<group col="4" colspan="4">
+									
+									<field name="supplyer_id"/>
+									
+						</group>
+						
+					</sheet>
+				</form>
+			</field>
+		</record>
+		
+		<!-- rfq_form_view action start -->
+		<record model="ir.actions.act_window" id="action_rfq_form">
+			<field name="name">Request for Quatation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">rfq.order</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		
+		
+		<menuitem id="main_manu" name="Request for Quatation" />
+		<menuitem id="manu_rfq" name="Quatation" parent="main_manu" />
+		
+		
+	</data> 
+</openerp>
